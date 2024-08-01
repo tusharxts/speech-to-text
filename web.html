@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>Voice to Text Generator</title>
+<link rel="stylesheet" href="web speeck 2 txt css.css">
+</head>
+<body>
+    <h1>Speech to text Converter</h1>
+    <textarea id="output" rows="8" cols="50" placeholder="Speake to write.......!!"></textarea><br>
+    <button id="start-btn">START</button>
+    <button id="stop-btn">STOP</button>
+    
+    
+<script>
+const recognition =  new webkitSpeechRecognition();
+recognition.lang = 'en-US';
+recognition.interimResults = true;
+recognition.continuous = true;
+
+
+document.getElementById("start-btn")
+.onclick = () => recognition.start();
+
+
+document.getElementById("stop-btn")
+.onclick = () => recognition.stop();
+
+recognition.onresult = event => {
+output.value = event.results[event.results.length - 1][0].transcript;
+}
+navigator.mediaDevices.getUserMedia({ audio: true });
+</script>
+</body>
+</html>
