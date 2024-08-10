@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Voice to Text Generator</title>
     <link rel="stylesheet" href="web speeck 2 txt css.css" />
+    <link rel="shortcut icon" href="speak.png" type="image/x-icon" />
   </head>
   <body>
     <h1>Speech to text Converter</h1>
@@ -31,6 +32,13 @@
         output.value = event.results[event.results.length - 1][0].transcript;
       };
       navigator.mediaDevices.getUserMedia({ audio: true });
+
+      function clearTextArea() {
+        document.getElementById("output").value = "";
+      }
+      document
+        .getElementById("stop-btn")
+        .addEventListener("click", clearTextArea);
     </script>
   </body>
 </html>
